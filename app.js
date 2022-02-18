@@ -15,43 +15,42 @@ var officeArr = [];
 var childrenArr = [];
 var collegeArr = [];
 var partyArr = [];
-// var flake = document.createElement('button')
-//         flake.setAttribute('Id', ready)
-function familySelect(){
-    familyState = true;
-    officeState = false;
-    childrenState = false;
-    collegeState = false;
-    partyState = false;
-    test('family');
+
+function familySelect() {
+  familyState = true;
+  officeState = false;
+  childrenState = false;
+  collegeState = false;
+  partyState = false;
+  pullAndPrint("family");
 }
-function officeSelect(){
-    familyState = false;
-    officeState = true;
-    childrenState = false;
-    collegeState = false;
-    partyState = false;
-    test('office');
+function officeSelect() {
+  familyState = false;
+  officeState = true;
+  childrenState = false;
+  collegeState = false;
+  partyState = false;
+  pullAndPrint("office");
 }
 
-function collegeSelect(){
-    familyState = false;
-    officeState = false;
-    childrenState = false;
-    collegeState = true;
-    partyState = false;
-    test('college');
+function collegeSelect() {
+  familyState = false;
+  officeState = false;
+  childrenState = false;
+  collegeState = true;
+  partyState = false;
+  pullAndPrint("college");
 }
-function partySelect(){
-    familyState = false;
-    officeState = false;
-    childrenState = false;
-    collegeState = false;
-    partyState = true;
-    test('party');
+function partySelect() {
+  familyState = false;
+  officeState = false;
+  childrenState = false;
+  collegeState = false;
+  partyState = true;
+  pullAndPrint("party");
 }
 console.log("loaded");
-function test(e) {
+function pullAndPrint(e) {
   $.get("https://excuser.herokuapp.com/v1/excuse" + "/" + e, (data) => {
     if (familyState && family <= 10) {
       console.log(familyState, family);
@@ -59,7 +58,7 @@ function test(e) {
         familyArr.push(data[0].excuse);
         var firstExcuse = document.createElement("li");
         firstExcuse.innerText = data[0].excuse + "...";
-        var bigBoi = document.getElementById("listItem");
+        var bigBoi = document.getElementById("list");
         bigBoi.appendChild(firstExcuse);
         family++;
       } else if (
@@ -67,11 +66,11 @@ function test(e) {
         familyArr.length < 9
       ) {
         console.log("already found");
-        test("family");
+        pullAndPrint("family");
       } else {
         var firstExcuse = document.createElement("li");
         firstExcuse.innerText = "No more suggestions in this catagory." + "...";
-        var bigBoi = document.getElementById("listItem");
+        var bigBoi = document.getElementById("list");
         bigBoi.appendChild(firstExcuse);
         console.log("No more suggestions in this catagory.");
         console.log(familyArr);
@@ -83,7 +82,7 @@ function test(e) {
         partyArr.push(data[0].excuse);
         var firstExcuse = document.createElement("li");
         firstExcuse.innerText = data[0].excuse + "...";
-        var bigBoi = document.getElementById("listItem");
+        var bigBoi = document.getElementById("list");
         bigBoi.appendChild(firstExcuse);
         party++;
       } else if (
@@ -91,11 +90,11 @@ function test(e) {
         partyArr.length < 9
       ) {
         console.log("already found");
-        test("party");
+        pullAndPrint("party");
       } else {
         var firstExcuse = document.createElement("li");
         firstExcuse.innerText = "No more suggestions in this catagory." + "...";
-        var bigBoi = document.getElementById("listItem");
+        var bigBoi = document.getElementById("list");
         bigBoi.appendChild(firstExcuse);
         console.log("No more suggestions in this catagory.");
         console.log(partyArr);
@@ -107,7 +106,7 @@ function test(e) {
         officeArr.push(data[0].excuse);
         var firstExcuse = document.createElement("li");
         firstExcuse.innerText = data[0].excuse + "...";
-        var bigBoi = document.getElementById("listItem");
+        var bigBoi = document.getElementById("list");
         bigBoi.appendChild(firstExcuse);
         office++;
       } else if (
@@ -115,11 +114,11 @@ function test(e) {
         officeArr.length < 9
       ) {
         console.log("already found");
-        test("office");
+        pullAndPrint("office");
       } else {
         var firstExcuse = document.createElement("li");
         firstExcuse.innerText = "No more suggestions in this catagory." + "...";
-        var bigBoi = document.getElementById("listItem");
+        var bigBoi = document.getElementById("list");
         bigBoi.appendChild(firstExcuse);
         console.log("No more suggestions in this catagory.");
         console.log(officeArr);
@@ -131,7 +130,7 @@ function test(e) {
         childrenArr.push(data[0].excuse);
         var firstExcuse = document.createElement("li");
         firstExcuse.innerText = data[0].excuse + "...";
-        var bigBoi = document.getElementById("listItem");
+        var bigBoi = document.getElementById("list");
         bigBoi.appendChild(firstExcuse);
         children++;
       } else if (
@@ -139,11 +138,11 @@ function test(e) {
         childrenArr.length < 9
       ) {
         console.log("already found");
-        test("children");
+        pullAndPrint("children");
       } else {
         var firstExcuse = document.createElement("li");
         firstExcuse.innerText = "No more suggestions in this catagory." + "...";
-        var bigBoi = document.getElementById("listItem");
+        var bigBoi = document.getElementById("list");
         bigBoi.appendChild(firstExcuse);
         console.log("No more suggestions in this catagory.");
         console.log(childrenArr);
@@ -155,7 +154,7 @@ function test(e) {
         collegeArr.push(data[0].excuse);
         var firstExcuse = document.createElement("li");
         firstExcuse.innerText = data[0].excuse + "...";
-        var bigBoi = document.getElementById("listItem");
+        var bigBoi = document.getElementById("list");
         bigBoi.appendChild(firstExcuse);
         college++;
       } else if (
@@ -163,11 +162,11 @@ function test(e) {
         collegeArr.length < 9
       ) {
         console.log("already found");
-        test("college");
+        pullAndPrint("college");
       } else {
         var firstExcuse = document.createElement("li");
         firstExcuse.innerText = "No more suggestions in this catagory." + "...";
-        var bigBoi = document.getElementById("listItem");
+        var bigBoi = document.getElementById("list");
         bigBoi.appendChild(firstExcuse);
         console.log("No more suggestions in this catagory.");
         console.log(collegeArr);
@@ -175,10 +174,25 @@ function test(e) {
     }
   });
 }
-
-// var ready = document.getElementById("ready");
-// ready.addEventListener("click", catagoryInput);
-
+function resetButton() {
+  document.getElementsByTagName("UL")[0].innerHTML = "";
+  family = 0;
+  office = 0;
+  children = 0;
+  college = 0;
+  party = 0;
+  familyState = false;
+  officeState = false;
+  childrenState = false;
+  collegeState = false;
+  partyState = false;
+  familyArr = [];
+  officeArr = [];
+  childrenArr = [];
+  collegeArr = [];
+  partyArr = [];
+  console.log("Fields Cleared");
+}
 function catagoryInput() {
   var output = document.getElementById("inputField").value;
   var lowerCase = output.toLowerCase();
@@ -215,7 +229,7 @@ function catagoryInput() {
     collegeState = false;
     partyState = true;
   }
-  test(lowerCase);
+  pullAndPrint(lowerCase);
 }
 
 setTimeout(function () {
@@ -231,7 +245,7 @@ setTimeout(function () {
 
     setTimeout(function () {
       var firstTitleText = document.getElementById("titleText");
-      removeFadeOut(document.getElementById('titleText'), 1000);
+      fadeOut(document.getElementById("titleText"), 1000);
 
       secondTitleText.innerHTML = "Or just lazy?";
       secondTitleText.setAttribute("Id", "titleTextTwo");
@@ -239,120 +253,70 @@ setTimeout(function () {
       document.getElementById("internalDiv").appendChild(secondTitleText);
       var thirdTitleText = document.createElement("div");
       setTimeout(function () {
-        // document.getElementById('titleText').innerHTML = "Or just Lazy?"
-        // fadeIn(document.getElementById('titleText'), 6000);
-        removeFadeOut(document.getElementById('titleTextTwo'), 3000);
-    //     removeFadeOut(document.getElementById('titleTextTwo'), 3000);
-        
-      
-      var thirdTitleText = document.createElement("div");
-      thirdTitleText.innerHTML = "Either way...";
-      thirdTitleText.setAttribute("Id", "titleTextThree");
-
-      document.getElementById("internalDiv").appendChild(thirdTitleText);
-      document.getElementById("head").style.backgroundImage = "linear-gradient(rgba(255, 0, 0, 0.6),rgba(255, 0, 0, 0.6))," + " url(dieGuy.jpg)";
-      
-      var background = document.getElementById("head");
-
-    background.classList.toggle("transformed-state");
-    setTimeout(function(){
-        removeFadeOut(document.getElementById('titleTextThree'), 2000);
-
-
+        fadeOut(document.getElementById("titleTextTwo"), 3000);
         var thirdTitleText = document.createElement("div");
-      thirdTitleText.innerHTML = "YOU NEED AN EXCUSE!";
-      thirdTitleText.setAttribute("Id", "titleTextThree");
-
-
-      setTimeout(function(){
-
-        // firstTitleText.parentNode.removeChild(firstTitleText);
-        // secondTitleText.parentNode.removeChild(secondTitleText);
-        // thirdTitleText.parentNode.removeChild(thirdTitleText);
+        thirdTitleText.innerHTML = "Either way...";
+        thirdTitleText.setAttribute("Id", "titleTextThree");
         document.getElementById("internalDiv").appendChild(thirdTitleText);
-        var flake = document.createElement('button');
-        flake.setAttribute('Id', 'ready');
-        flake.innerHTML = "FLAKE!"
-        flake.addEventListener("click", catagoryInput);
-        document.getElementById("head").prepend(flake);
+        document.getElementById("head").style.backgroundImage =
+          "linear-gradient(rgba(255, 0, 0, 0.6),rgba(255, 0, 0, 0.6))," +
+          " url(dieGuy.jpg)";
 
-        
-        var flake = document.createElement('button');
-        flake.setAttribute('Id', 'familyButton');
-        flake.innerHTML = "Family";
-        flake.addEventListener("click", familySelect);
-        document.getElementById("head").prepend(flake);
-        
+        var background = document.getElementById("head");
 
+        background.classList.toggle("transformed-state");
+        setTimeout(function () {
+          fadeOut(document.getElementById("titleTextThree"), 2000);
+          var thirdTitleText = document.createElement("div");
+          thirdTitleText.innerHTML = "YOU NEED AN EXCUSE!";
+          thirdTitleText.setAttribute("Id", "titleTextThree");
+          setTimeout(function () {
+            document.getElementById("internalDiv").appendChild(thirdTitleText);
+            var flake = document.createElement("button");
+            flake.setAttribute("Id", "collegeButton");
+            flake.innerHTML = "COLLEGE";
+            flake.addEventListener("click", collegeSelect);
+            document.getElementById("head").prepend(flake);
 
-        
-        var flake = document.createElement('button');
-        flake.setAttribute('Id', 'officeButton');
-        flake.innerHTML = "Office";
-        flake.addEventListener("click", catagoryInput);
-        document.getElementById("head").prepend(flake);
-        
-        
-        
-        
-        
-        fadeIn(flake, 2000);
+            var flake = document.createElement("button");
+            flake.setAttribute("Id", "familyButton");
+            flake.innerHTML = "FAMILY";
+            flake.addEventListener("click", familySelect);
+            document.getElementById("head").prepend(flake);
 
-      },2000)
+            var flake = document.createElement("button");
+            flake.setAttribute("Id", "officeButton");
+            flake.innerHTML = "OFFICE";
+            flake.addEventListener("click", officeSelect);
+            document.getElementById("head").prepend(flake);
 
-    //   document.getElementById("internalDiv").appendChild(thirdTitleText);
-        
+            var flake = document.createElement("button");
+            flake.setAttribute("Id", "partyButton");
+            flake.innerHTML = "PARTY";
+            flake.addEventListener("click", partySelect);
+            document.getElementById("head").prepend(flake);
 
-    },6000);
+            var flake = document.createElement("button");
+            flake.setAttribute("Id", "resetButton");
+            flake.innerHTML = "RESET";
+            flake.addEventListener("click", resetButton);
+            document.getElementById("head").prepend(flake);
 
-    //   thirdTitleText.style.transition = "opacity 3s ease";
-    //   setTimeout(function(){
-        
-    //     thirdTitleText.style.opacity = 0;
-         
-    //   },3000);
+            fadeIn(flake, 2000);
+          }, 2000);
+        }, 6000);
       }, 5000);
     }, 3000);
   }, 6000);
 }, 4000);
 
-//   setTimeout(function(){
-//       firstTitleText.parentNode.removeChild(firstTitleText);
-//       var secondTitleText = document.getElementById("titleTextTwo");
-//   secondTitleText.style.transition = "opacity 3s ease";
-//   secondTitleText.style.opacity = 0;
-
-//   var thirdTitleText = document.createElement("div");
-// thirdTitleText.setAttribute("Id", "titleTextThree");
-// thirdTitleText.innerHTML = 'Either way...'
-// document.getElementById("internalDiv").appendChild(thirdTitleText);
-
-// var secondTitleText = document.getElementById("titleTextTwo");
-//         secondTitleText.style.transition = "opacity 3s ease";
-//         secondTitleText.style.opacity = 0;
-
-//         var thirdTitleText = document.createElement("div");
-//         thirdTitleText.setAttribute("Id", "titleTextThree");
-//         thirdTitleText.innerHTML = "Either way...";
-//         document.getElementById("internalDiv").appendChild(thirdTitleText);
-
-function removeFadeOut( el, speed ) {
-    var seconds = speed/1000;
-    el.style.transition = "opacity "+seconds+"s ease";
-
-    el.style.opacity = 0;
-    // setTimeout(function() {
-    //     el.parentNode.removeChild(el);
-    // }, speed);
+function fadeOut(variable, mils) {
+  var time = mils / 1000;
+  variable.style.transition = "opacity " + time + "s ease";
+  variable.style.opacity = 0;
 }
-function fadeIn( el, speed ) {
-    var seconds = speed/1000;
-    el.style.transition = "opacity "+seconds+"s ease";
-
-    el.style.opacity = 1;
-    // setTimeout(function() {
-    //     el.parentNode.removeChild(el);
-    // }, speed);
+function fadeIn(el, speed) {
+  var time = mils / 1000;
+  variable.style.transition = "opacity " + time + "s ease";
+  variable.style.opacity = 1;
 }
-
-// removeFadeOut(document.getElementById('test'), 2000);

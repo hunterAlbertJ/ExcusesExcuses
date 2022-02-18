@@ -5,7 +5,7 @@
 
 .header{
     min-height: 100vh;
-    width: 100%;
+    width:100vw;
     background-image: linear-gradient(rgba(8, 146, 208, 0.6),rgba(8, 146, 208, 0.6)),
     url(clock.jpg);
     background-position: center;
@@ -15,7 +15,7 @@
   transition-timing-function: ease-in-out;
   transition-duration: 3s;
   display: flex;
-      padding: 8% 8%;
+      padding: 4% 4%;
       justify-content: flex-start;
       align-items: flex-start;
 }
@@ -37,7 +37,6 @@ div{
     -moz-animation: fadeIn 5s;
     -o-animation: fadeIn 5s;
     -ms-animation: fadeIn 5s;
-    
   }
   @keyframes fadeIn {
     0% {opacity:0;}
@@ -106,17 +105,21 @@ div{
       text-align: left;
       font-size: 15px;
   }
-  .internalText ul li{
-      display: inline-block;
-      width: 100%;
-      font-size: 15px;
-      animation: fadeIn 5s;
-      -webkit-animation: fadeIn 5s;
-      -moz-animation: fadeIn 5s;
-      -o-animation: fadeIn 5s;
-      -ms-animation: fadeIn 5s;
-      
-    } 
+  /* .internalText ul  */
+  li{
+    display: inline-block;
+    width: 100%;
+    font-size: 15px;
+    animation: fadeIn 5s;
+    -webkit-animation: fadeIn 5s;
+    -moz-animation: fadeIn 5s;
+    -o-animation: fadeIn 5s;
+    -ms-animation: fadeIn 5s;
+    border: solid;
+    border-radius: 7px;
+    margin: .5vh;
+    
+  } 
     @keyframes fadeIn {
       0% {opacity:0;}
       100% {opacity:1;}
@@ -157,9 +160,10 @@ div{
     color: white;
     font-weight: bold;
     width: 200px;
+    margin:.5vw;
   }
   
-  #ready {
+  #collegeButton {
     background: rgba(255, 255, 255, 0.15);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(3.5px);
@@ -189,13 +193,39 @@ div{
     font-size: 25px;
     font-family: 'Montserrat', sans-serif;
   }
-  #ready:hover {
+  #partyButton {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+    border-radius: 150px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  #resetButton {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+    border-radius: 150px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  #collegeButton:hover {
     box-shadow: 3px 3px 3px black;
   }
   #familyButton:hover {
     box-shadow: 3px 3px 3px black;
   }
   #officeButton:hover {
+    box-shadow: 3px 3px 3px black;
+  }
+  #partyButton:hover {
+    box-shadow: 3px 3px 3px black;
+  }
+  #resetButton:hover {
     box-shadow: 3px 3px 3px black;
   }
   div{
